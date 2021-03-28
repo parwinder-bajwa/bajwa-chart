@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  bajwa-chart:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2021-03-28T09:17:25.014111943Z"
+    description: Chart for bajwa application
+    digest: 94cce714f4d51fb5304b0b9ffe935bef079578c383d7e9b54613a3dc93801597
+    name: bajwa-chart
+    type: application
+    urls:
+    - bajwa-chart-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-03-28T09:17:25.012815618Z"

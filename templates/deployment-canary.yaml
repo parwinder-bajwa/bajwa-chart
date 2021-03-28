@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bajwa-canary
+  labels:
+    app: bajwa
+    release: canary
+spec:
+  selector:
+    matchLabels:
+      app: bajwa
+      release: canary
+  replicas: {{ .Values.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: bajwa
+        release: canary
+    spec:
+      containers:
+      - name: go-demo-7
+        image: parwin/myapp:v2
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8888
+        
+

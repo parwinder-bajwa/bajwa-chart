@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bajwa-primary
+  labels:
+    app: bajwa
+    release: primary
+spec:
+  selector:
+    matchLabels:
+      app: bajwa
+      release: primary
+  replicas: {{ .Values.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: bajwa
+        release: primary
+    spec:
+      containers:
+      - name: go-demo-7
+        image: parwin/myapp:v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8888
+        
+

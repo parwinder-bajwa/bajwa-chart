@@ -1,0 +1,13 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: bajwa-destination-rule
+spec:
+  host: bajwa-service
+  subsets:
+  - name: utama
+    labels:
+      release: primary
+  - name: budak
+    labels:
+      release: canary

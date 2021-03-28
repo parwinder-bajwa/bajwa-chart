@@ -1,0 +1,31 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: bajwa-virtualservice-split
+spec:
+  hosts:
+  - {{ index .Values.hosts 0 }}
+  gateways:
+  - bajwa-gateway
+  http:
+  - route:
+    - destination:
+        host: bajwa-service
+        subset: budak
+        port:
+          number: 80
+      weight: 50
+      headers:
+        request:
+          set:
+            release: canary
+    - destination:
+        host: bajwa-service
+        subset: utama
+        port:
+          number: 80
+      weight: 50
+      headers:
+        request:
+          set:
+            release: primary
